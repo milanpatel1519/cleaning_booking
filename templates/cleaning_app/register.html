@@ -1,0 +1,26 @@
+{% block content %}
+  <h2>Register</h2>
+  <form method="post">
+    {% csrf_token %}
+      <p>
+        First Name: {{form.first_name}}
+        {%if 'first_name' in errors%}
+          <div class='alert alert-warning'>{{errors.first_name}}</div>
+        {% endif %}
+      </p>
+      <p>
+        Last Name: {{form.last_name}}
+        {%if 'last_name' in errors%}
+          <div class='alert alert-warning'>{{errors.last_name}}</div>
+        {% endif %}
+      </p>
+      <p>
+        Phone Number: {{form.phone_number}}
+        {%if 'phone_number' in errors%}
+          <div class='alert alert-warning'>{{errors.phone_number}}</div>
+        {% endif %}
+      </p>
+    <button type="submit">Register</button>
+    <a href="{% url 'index' %}">Home</a>
+  </form>
+{% endblock %}
