@@ -32,10 +32,20 @@ Make website for local home cleaning company. Schedule a customer cleaning booki
 
   customer (required), 
   cleaner (required), 
-  date (required)
+  date (required), 
+  city (required)
   
 3. **Cleaner**
 
   first_name (required), 
   last_name (required), 
-  quality_score (required, must be a number between 0.0 and 5.0)
+  quality_score (required, must be a number between 0.0 and 5.0), 
+  city (required)
+
+4. **Cities**
+
+  name (required)
+
+**Install requirement.txt file for dependent libraries**
+
+Command: pip install -r requirement.txt
