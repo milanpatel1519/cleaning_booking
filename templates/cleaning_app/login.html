@@ -1,0 +1,15 @@
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+      <p>
+        Phone Number: {{form.phone_number}}
+        {%if 'phone_number' in errors%}
+          <div class='alert alert-warning'>{{errors.phone_number}}</div>
+        {% endif %}
+      </p>
+    <button type="submit">Login</button>
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'register' %}">Register</a>
+  </form>
+{% endblock %}

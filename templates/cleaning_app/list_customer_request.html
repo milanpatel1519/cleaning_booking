@@ -1,0 +1,25 @@
+{% block content %}
+    <h2>Your cleaning listing.</h2>
+    <a style="float: right;" href="{% url 'logout' %}">Logout</a>
+    <br/>
+    <a href="{% url 'create' %}">Create new cleaning request</a>
+    <p>
+        {% if booking%}
+            <table style="border-collapse: collapse; width: 100%;">
+                <tr style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                    <th>Date</th>
+                    <th>Cleaner</th>
+                </tr>
+                {%for book in booking%}
+                    <tr style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                        <td>{{book.date}}</td>
+                        <td>{{book.cleaner}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        {% if not booking %}
+        No cleaning records found.
+        {% endif %}
+    </p>
+{% endblock %}

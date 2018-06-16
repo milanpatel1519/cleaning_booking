@@ -23,12 +23,14 @@ class Customer(models.Model):
 
 
 class Booking(models.Model):
-    customer = models.CharField(blank=False, max_length=100)
-    cleaner = models.CharField(blank=False, max_length=100)
+    customer = models.ForeignKey('Customer',
+                                 on_delete=models.CASCADE)
+    cleaner = models.ForeignKey('Cleaner',
+                                on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now, blank=False, null=False)
 
     def __unicode__(self):
-        return self.customer
+        return self.customer.first_name
 
 
 def CHOICES():
