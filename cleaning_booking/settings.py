@@ -25,12 +25,13 @@ SECRET_KEY = '(=q($7ng=!7uu_xxn+f$0&0ahfx08)3grd^-p=(k@ntgnx8c)w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'cleaning_app.apps.CleaningAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'cleaning_booking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cleaning_booking',
+        'USER': 'milan',
+        'PASSWORD': 'milan',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
