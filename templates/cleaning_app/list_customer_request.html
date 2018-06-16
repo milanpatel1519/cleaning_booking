@@ -2,7 +2,9 @@
     <h2>Your cleaning listing.</h2>
     <a style="float: right;" href="{% url 'logout' %}">Logout</a>
     <br/>
-    <a href="{% url 'create' %}">Create new cleaning request</a>
+    Customer: {{customer.first_name}} {{customer.last_name}}
+    <br/>
+    <a href="{% url 'create_cleaning_application' %}">Create new cleaning request</a>
     <p>
         {% if booking%}
             <table style="border-collapse: collapse; width: 100%;">
@@ -19,7 +21,13 @@
             </table>
         {% endif %}
         {% if not booking %}
-        No cleaning records found.
+            No cleaning records found.
+        {% endif %}
+        {%if 'error' in errors%}
+          <div class='alert alert-warning'>{{errors.error}}</div>
+        {% endif %}
+        {%if 'success' in errors%}
+          <div class='alert alert-warning'>{{errors.success}}</div>
         {% endif %}
     </p>
 {% endblock %}

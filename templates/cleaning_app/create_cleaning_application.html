@@ -1,0 +1,24 @@
+{% block content %}
+  <h2>Schedule cleaning request</h2>
+  <form method="post">
+    {% csrf_token %}
+      <p>
+        City: {{form.city}}
+        {%if 'city' in errors%}
+          <div class='alert alert-warning'>{{errors.city}}</div>
+        {% endif %}
+      </p>
+      <p>
+        Date and Time: {{form.date}}
+        {%if 'date' in errors%}
+          <div class='alert alert-warning'>{{errors.date}}</div>
+        {% endif %}
+      </p>
+      <p>
+        {%if 'common' in errors%}
+          <div class='alert alert-warning'>{{errors.common}}</div>
+        {% endif %}
+      </p>
+    <button type="submit">Schedule</button>
+  </form>
+{% endblock %}

@@ -27,6 +27,8 @@ class Booking(models.Model):
                                  on_delete=models.CASCADE)
     cleaner = models.ForeignKey('Cleaner',
                                 on_delete=models.CASCADE)
+    city = models.ForeignKey('Cities',
+                             on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now, blank=False, null=False)
 
     def __unicode__(self):
